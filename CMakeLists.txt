@@ -9,6 +9,9 @@ project(
 add_library(VulkanMemoryAllocator-Hpp INTERFACE)
 add_library(VulkanMemoryAllocator-Hpp::VulkanMemoryAllocator-Hpp ALIAS VulkanMemoryAllocator-Hpp)
 
+add_subdirectory(VulkanMemoryAllocator)
+target_link_libraries(VulkanMemoryAllocator-Hpp INTERFACE VulkanMemoryAllocator)
+
 target_include_directories(VulkanMemoryAllocator-Hpp INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)
 
 if (CMAKE_VERSION VERSION_LESS "3.21")
